@@ -2,10 +2,28 @@
 Input: a List of integers as well as an integer `k` representing the size of the sliding window
 Returns: a List of integers
 '''
+import collections
 def sliding_window_max(nums, k):
     # Your code here
 
-    pass
+    """
+    :type nums: List[int]
+    :type k: int
+    :rtype: List[int]
+    """
+    if not nums:
+        return nums
+    queue = collections.deque()
+    res = []
+    for num in nums:
+        if len(queue) < k:
+            queue.append(num)
+        else:
+            res.append(max(queue))
+            queue.popleft()
+            queue.append(num)
+    res.append(max(queue))
+    return res
 
 
 if __name__ == '__main__':

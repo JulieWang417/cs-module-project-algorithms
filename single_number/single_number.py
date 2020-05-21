@@ -15,6 +15,7 @@ def single_number(arr):
     for i in range(1,len(arr)):
         single ^= arr[i]  # exclusive OR， XOR
         # single = single ^ arr[i], if single is same as arr[i], return 0, otherwise return 1
+        # 0 ^ b = b
         # print(single)
     return single
 
